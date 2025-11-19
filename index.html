@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>狗狗年齡計算機</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+<!-- 名字輸入彈窗 -->
+<div id="nameModal" class="modal">
+    <div class="modal-content">
+        <h2>🐾 歡迎使用狗狗年齡計算器 🐾</h2>
+        <p style="margin-bottom: 20px; color: #666;">請輸入您狗狗的名字</p>
+        <input type="text" id="dogNameInput" placeholder="例如：小白" maxlength="20" onkeypress="handleNameEnter(event)">
+        <button onclick="saveDogName()">確定</button>
+    </div>
+</div>
+
+<!-- 結果彈窗 -->
+<div id="resultModal" class="modal">
+    <div class="modal-content result-modal">
+        <div class="modal-dog-icon">🎉</div>
+        <h2 id="resultModalTitle"></h2>
+        <div class="age-display">
+            <div class="age-item">
+                <span class="age-label">🐕 狗狗年齡</span>
+                <span class="age-value" id="dogAgeDisplay"></span>
+            </div>
+            <div class="age-divider">➜</div>
+            <div class="age-item">
+                <span class="age-label">👤 相當於人類</span>
+                <span class="age-value" id="humanAgeDisplay"></span>
+            </div>
+        </div>
+        <button onclick="closeResultModal()" class="modal-close-btn">關閉</button>
+    </div>
+</div>
+
+<!-- 主要內容 -->
+<div class="container">
+    <div class="dog-icon">🐕</div>
+    <h1 id="title">狗狗年齡計算器</h1>
+
+    <div class="form-group">
+        <label id="birthdayLabel">狗狗出生年月日：</label>
+        <div style="display: flex; gap: 10px;">
+            <select id="birthYear" style="flex: 1;">
+                <option value="">年</option>
+            </select>
+            <select id="birthMonth" style="flex: 1;">
+                <option value="">月</option>
+            </select>
+            <select id="birthDay" style="flex: 1;">
+                <option value="">日</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label id="sizeLabel">狗狗體型：</label>
+        <select id="dogSize">
+            <option value="">請選擇體型</option>
+            <option value="mini">迷你型／小型犬（9公斤以下）</option>
+            <option value="medium">中型犬（9～23公斤）</option>
+            <option value="large">大型犬（23～45公斤）</option>
+            <option value="giant">巨型犬（45公斤以上）</option>
+        </select>
+    </div>
+
+    <button class="calculate-btn" onclick="calculateAge()">計算年齡</button>
+    
+    <button class="switch-dog-btn" onclick="switchDog()">換算另一隻狗狗 🔄</button>
+</div>
+</body>
+</html>
